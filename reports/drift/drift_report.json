@@ -1,0 +1,69 @@
+{
+  "referencia": {
+    "total_records": 3000,
+    "missing_ratio_raw": 0.0,
+    "anomaly_rate": 0.0863,
+    "anomaly_rate_delta_vs_base": 0.0,
+    "silhouette_proxy": 0.4497,
+    "drifted_features": [],
+    "alert_triggered": false,
+    "recommended_action": "NO_ACTION: Distribución estable dentro de umbrales.",
+    "features": {
+      "Año_de_nacimiento": {
+        "psi": 0.0,
+        "ks_stat": 0.0,
+        "ks_pvalue": 1.0,
+        "mean_ref": 1984.4843,
+        "mean_curr": 1984.4843,
+        "mean_shift": 0.0,
+        "alert_drift": false
+      }
+    }
+  },
+  "drift_estacional_media": {
+    "total_records": 3000,
+    "missing_ratio_raw": 0.0,
+    "anomaly_rate": 0.0817,
+    "anomaly_rate_delta_vs_base": 0.0046,
+    "silhouette_proxy": 0.5868,
+    "drifted_features": [
+      "Año_de_nacimiento"
+    ],
+    "alert_triggered": true,
+    "recommended_action": "RETRAIN_MODEL: Reentrenar Isolation Forest con datos recientes y recalibrar umbrales.",
+    "features": {
+      "Año_de_nacimiento": {
+        "psi": 0.6815,
+        "ks_stat": 0.3233,
+        "ks_pvalue": 0.0,
+        "mean_ref": 1984.4843,
+        "mean_curr": 1978.4109,
+        "mean_shift": -6.0735,
+        "alert_drift": true
+      }
+    }
+  },
+  "drift_faltantes": {
+    "total_records": 3000,
+    "missing_ratio_raw": 0.1527,
+    "anomaly_rate": 0.074,
+    "anomaly_rate_delta_vs_base": 0.0123,
+    "silhouette_proxy": 0.5121,
+    "drifted_features": [
+      "Año_de_nacimiento"
+    ],
+    "alert_triggered": true,
+    "recommended_action": "CHECK_FEATURE_PIPELINE: Auditar transformaciones, valores faltantes y estacionalidad en features.",
+    "features": {
+      "Año_de_nacimiento": {
+        "psi": 0.1108,
+        "ks_stat": 0.0747,
+        "ks_pvalue": 0.0,
+        "mean_ref": 1984.4843,
+        "mean_curr": 1984.9353,
+        "mean_shift": 0.451,
+        "alert_drift": true
+      }
+    }
+  }
+}
